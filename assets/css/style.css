@@ -1,10 +1,11 @@
 html,
 body {
+  text-align: center;
   background: #efefef;
   padding: 10px;
   font-family: 'Varela Round';
 }
-/*=== 2. Anchor Link ===*/
+
 a {
   color: #aaaaaa;
   transition: all ease-in-out 200ms;
@@ -13,7 +14,7 @@ a:hover {
   color: #333333;
   text-decoration: none;
 }
-/*=== 3. Text Outside the Box ===*/
+
 .etc-login-form {
   color: #919191;
   padding: 10px 20px;
@@ -265,7 +266,27 @@ label:hover:before {
   font-weight: bold;
 }
 
-
 h1{
  text-align: center;
+}
+
+#total_weekly{
+  font-weight: bold;
+  font-size: 70px;
+}
+
+.wage_info{
+  font-weight: bold;
+  font-size: 40px;
+}
+
+#add_tip{
+  margin-top: 10%;
+}
+.input-group{
+  margin-top: 3%;
+}
+.modal fade{
+  font-size: 12px;
+  font-weight: bold;
 }
