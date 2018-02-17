@@ -5,7 +5,11 @@ body {
   padding: 10px;
   font-family: 'Varela Round';
 }
+<<<<<<< HEAD:assets/css/style.css
 
+=======
+/*=== 2. Anchor Links This is what I changed ===*/
+>>>>>>> d6ffefe956f88731fc8fba5ced8fe16cb52b2da6:public/css/style.css
 a {
   color: #aaaaaa;
   transition: all ease-in-out 200ms;
