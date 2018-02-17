@@ -19,3 +19,6 @@ var week = sequelize.define("week", {
 // Makes the Character Model available for other files (will also create a table)
 
     module.exports = week;
+
+    //brandons test
+    
