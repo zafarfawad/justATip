@@ -13,24 +13,33 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                    aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="home.html"><span class="glyphicon glyphicon-user"></span>User ID #347583</a>
-                <a class="navbar-brand" href="home.html">JUST A TIP</a>
-                <a class="navbar-brand" href="history.html"><span class="glyphicon glyphicon-list-alt"></span>History</a>
-                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-map-marker"></span>Location</a>
+    <!-- =============================================================================== -->
+    <!-- NAVBAR -->
+    <!-- =============================================================================== -->
+    <nav class="my-navbar navbar navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <!-- Your name on NavBar -->
+                    <a class="navbar-brand" href="home.html">Just A Tip</a>
+                </div>
+                <!-- NavBar Portfolio Contact About Me -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="history.html"><span class="glyphicon glyphicon-list-alt"></span>History</a>
+                    </li>
+                    <li>
+                        <a href=""><span class="glyphicon glyphicon-map-marker"></span>Location</a>
+                    </li>
+                    <li>
+                        <a href="login.html"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+                    </li>
+                <!-- /.navbar-collapse -->    
+                </ul>
+            <!-- /.container -->    
             </div>
-        </div>
-    </nav>
+        </nav>
+
     <div class="container">
         <!-- **************************************************** -->
         <!-- Modal -->
@@ -117,27 +126,27 @@
     <br>
 
     <!-- **************************************************** -->
-        <!-- Table -->
-        <!-- **************************************************** -->
+    <!-- Table -->
+    <!-- **************************************************** -->
 
     <table class="table">
-            <thead class="thead-dark">
-              <tr>
+        <thead class="thead-dark">
+            <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Date Worked</th>
                 <th scope="col">Tip Amount</th>
                 <th scope="col">Comments</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
                 <th scope="row"></th>
                 <td id="date_worked"></td>
                 <td id="tip_amount"></td>
                 <td id="comments"></td>
-              </tr>
-            </tbody>
-          </table>
+            </tr>
+        </tbody>
+    </table>
 
 
 
