@@ -9,74 +9,93 @@
 	<title>Login</title>
 
 	<!-- All the files that are required -->
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
 	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-	    crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<h1 class="text-center">Just A Tip</h1>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<!-- Where all the magic happens -->
-				<!-- LOGIN FORM -->
-				<div class="text-center" style="padding:50px 0">
-					<div class="logo">Login</div>
-					<!-- Main Form -->
-					<div class="login-form-1">
-						<form id="login-form" class="text-left">
-							<div class="login-form-main-message"></div>
-							<div class="main-login-form">
-								<div class="login-group">
-									<!-- ************************************************************ -->
-									<!-- USERNAME -->
-									<!-- ************************************************************ -->
-									<div class="form-group">
-										<label for="lg_username" class="sr-only"></label>
-										<input type="text" class="form-control" id="username" name="lg_username" placeholder="username">
-										<!-- ID - username -->
-									</div>
-									<!-- ************************************************************ -->
-									<!-- CODE -->
-									<!-- ************************************************************ -->
-									<div class="form-group">
-										<label for="lg_password" class="sr-only"></label>
-										<input type="password" class="form-control" id="code" name="lg_code" placeholder="login code">
-										<!-- ID - password -->
-									</div>
-									<!-- ************************************************************ -->
-									<!-- REMEMBER CHECK BOX -->
-									<!-- ************************************************************ -->
-									<div class="form-group login-group-checkbox">
-										<input type="checkbox" id="lg_remember" name="lg_remember">
-										<label for="lg_remember">remember</label>
-									</div>
-								</div>
-								<button type="submit" class="login-button">
-									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-								</button>
+        <div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Login</a>
 							</div>
-							<div class="etc-login-form">
-								<p>Forgot your password?
-									<a href="forgotcode.html">Click here</a>
-								</p>
-								<p>New user?
-									<a href="register.html">Create new account</a>
-								</p>
+							<div class="col-xs-6">
+								<a href="" id="register-form-link">Register</a>
 							</div>
-						</form>
+						</div>
+						<hr>
 					</div>
-					<!-- end:Main Form -->
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="login-form" action="home.html" method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+									</div>
+									<div class="form-group text-center">
+										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+										<label for="remember"> Remember Me</label>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="forgotCode.html" tabindex="5" class="forgot-password">Forgot Code?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+								<form id="register-form" action="register.html" method="post" role="form" style="display: none;">
+									<div class="form-group">
+										<input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Name" value="">
+									</div>
+									<div class="form-group">
+										<input type="hourlyWage" name="hourlyWage" id="hourlyWage" tabindex="1" class="form-control" placeholder="Hourly Wage" value="">
+									</div>
+									<div class="form-group">
+										<input type="zipCode" name="zipCode" id="zipCode" tabindex="1" class="form-control" placeholder="Zip Code">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+
+									</div>
+									<div class="form-group">
+										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -84,6 +103,8 @@
 	<!-- <script src="assets/js/app.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script src="js/login.js"></script>
 </body>
 
 </html>
