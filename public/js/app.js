@@ -14,6 +14,12 @@ $("#submit_tip").on("click", function () {
         var salaryTotal = salary * hoursWorked;
         console.log (salaryTotal);
         var perHour = (parseFloat(tipAmount)+parseFloat(salaryTotal))/parseFloat(hoursWorked);
-        console.log(perHour)
+        console.log(perHour);
+
+        // $( "#date_worked" ).prepend( document.date ); -> from sql 
+        $("#tip_amount ").prepend(tipAmount);
+        $("#comments").prepend(notes);
+
     }
 })
+
