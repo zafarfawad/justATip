@@ -16,78 +16,123 @@
     <!-- =============================================================================== -->
     <!-- NAVBAR -->
     <!-- =============================================================================== -->
+
     <nav class="my-navbar navbar navbar-fixed-top">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <!-- Your name on NavBar -->
-                    <a class="navbar-brand" href="home.html">Just A Tip</a>
-                </div>
-                <!-- NavBar Portfolio Contact About Me -->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" style="
+                    background-color: white;
+                ">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home.html">Just A Tip</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="history.html"><span class="glyphicon glyphicon-list-alt"></span>History</a>
+                        <a href="history.html">
+                            <span class="glyphicon glyphicon-list-alt"></span>History</a>
                     </li>
                     <li>
-                        <a href=""><span class="glyphicon glyphicon-map-marker"></span>Location</a>
+                        <a href="">
+                            <span class="glyphicon glyphicon-map-marker"></span>Location</a>
                     </li>
                     <li>
-                        <a href="login.html"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+                        <a href="login.html">
+                            <span class="glyphicon glyphicon-log-out"></span>Logout</a>
                     </li>
-                <!-- /.navbar-collapse -->    
                 </ul>
-            <!-- /.container -->    
             </div>
-        </nav>
+        </div>
+    </nav>
 
     <div class="container">
         <!-- **************************************************** -->
         <!-- Modal -->
         <!-- **************************************************** -->
+
         <div class="modal fade" id="add_tip_modal" tabindex="-1" role="dialog" aria-labelledby="add_tip" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form data-toggle="validator" role="form">
-                            <div class="form-group">
-                                <label for="input_tip" class="control-label">
-                                    <h3>Tip amount</h3>
-                                </label>
-                                <input type="number" class="form-control" id="input_tip_amount" placeholder="Example: 120" required>
-                                <label data-error="wrong"></label>
-                            </div>
-                            <div class="form-group">
-                                <label for="input_hours" class="control-label">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-- **************************************************** -->
+                        <!-- Inputs -->
+                        <!-- **************************************************** -->
+                        <div class="modal-body">
+                            <form data-toggle="validator" role="form">
+                                <div class="form-group">
                                     <h3>Hours Worked</h3>
-                                </label>
-                                <input type="number" class="form-control" id="input_hours_worked" placeholder="Example: 8" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">
-                                    <h3>Notes</h3>
-                                </label>
-                                <textarea class="form-control" id="input_notes" rows="3"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button id="submit_tip" type="button" data-dismiss="modal" class="btn btn-primary">Add tip</button>
+                                    <select class="form-control" id="input_hours_worked">
+                                        <option value="1">1 hour</option>
+                                        <option value="2">2 hours</option>
+                                        <option value="3">3 hours</option>
+                                        <option value="4">4 hours</option>
+                                        <option value="5">5 hours</option>
+                                        <option value="6">6 hours</option>
+                                        <option value="7">7 hours</option>
+                                        <option value="8">8 hours</option>
+                                        <option value="9">9 hours</option>
+                                        <option value="10">10 hours</option>
+                                        <option value="11">11 hours</option>
+                                        <option value="12">12 hours</option>
+                                        <option value="13">13 hours</option>
+                                        <option value="14">14 hours</option>
+                                        <option value="15">15 hours</option>
+                                        <option value="16">16 hours</option>
+                                        <option value="17">17 hours</option>
+                                        <option value="18">18 hours</option>
+                                        <option value="19">19 hours</option>
+                                        <option value="20">20 hours</option>
+                                        <option value="21">21 hours</option>
+                                        <option value="22">22 hours</option>
+                                        <option value="23">23 hours</option>
+                                        <option value="23">24 hours</option>
+                                    </select>
+                                    <select class="form-control" id="input_minutes_worked" style="margin-top: 10px">
+                                        <option value="0">0 minuetes</option>
+                                        <option value="0.16">10 minutes</option>
+                                        <option value="0.33">20 minutes</option>
+                                        <option value="0.5">30 minutes</option>
+                                        <option value="0.66">40 minutes</option>
+                                        <option value="0.83">50 minutes</option>
+                                    </select>
+                                </div>
+        
+                                <div class="form-group">
+                                    <label for="input_tip" class="control-label">
+                                        <h3>Tip amount</h3>
+                                    </label>
+                                    <input type="number" class="form-control" id="input_tip_amount" placeholder="Example: 120" required>
+                                    <label data-error="wrong"></label>
+                                </div>
+        
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">
+                                        <h3>Notes</h3>
+                                    </label>
+                                    <textarea class="form-control" id="input_notes" rows="3"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button id="submit_tip" type="button" data-dismiss="modal" class="btn btn-primary">Add tip</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         <!-- **************************************************** -->
         <!-- Body -->
         <!-- **************************************************** -->
-        <div class="row">
+    <div class="row">
             <div class="col-sm-12">
-                <h3>Total Weekly</h1>
+                <h3>Total daily</h1>
                     <p id="total_weekly" class="wage_info">$
                         <span id="total_weekly_amount">0</span>
                     </p>
@@ -95,7 +140,7 @@
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <h3>Hours worked this week</h3>
+                <h3>Hours worked this day</h3>
                 <p id="total_hours" class="wage_info">
                     <span id="total_weekly_hours">0</span>
                 </p>
@@ -107,7 +152,7 @@
                 </p>
             </div>
             <div class="col-sm-4">
-                <h3>Total tips this week</h3>
+                <h3>Total tips this day</h3>
                 <p id="total_hourly" class="wage_info">$
                     <span id="total_weekly_tips">0</span>
                 </p>
@@ -121,7 +166,6 @@
                 </button>
             </div>
         </div>
-    </div>
 
     <br>
 
@@ -153,6 +197,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/2.2.2/moment-duration-format.js"></script>
     <script src="js/app.js"></script>
 </body>
 
