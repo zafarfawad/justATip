@@ -157,3 +157,14 @@ h1{
  .icon-bar{
   background-color: #1092d8;
  }
+
+ /* ======================= Table ======================= */
+
+ #ID,
+ #date_worked,
+ #tip_amount,
+ #comments {
+   text-align: left;
+ }
+
+  

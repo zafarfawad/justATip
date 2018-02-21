@@ -54,83 +54,83 @@
         <!-- **************************************************** -->
 
         <div class="modal fade" id="add_tip_modal" tabindex="-1" role="dialog" aria-labelledby="add_tip" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <!-- **************************************************** -->
-                        <!-- Inputs -->
-                        <!-- **************************************************** -->
-                        <div class="modal-body">
-                            <form data-toggle="validator" role="form">
-                                <div class="form-group">
-                                    <h3>Hours Worked</h3>
-                                    <select class="form-control" id="input_hours_worked">
-                                        <option value="1">1 hour</option>
-                                        <option value="2">2 hours</option>
-                                        <option value="3">3 hours</option>
-                                        <option value="4">4 hours</option>
-                                        <option value="5">5 hours</option>
-                                        <option value="6">6 hours</option>
-                                        <option value="7">7 hours</option>
-                                        <option value="8">8 hours</option>
-                                        <option value="9">9 hours</option>
-                                        <option value="10">10 hours</option>
-                                        <option value="11">11 hours</option>
-                                        <option value="12">12 hours</option>
-                                        <option value="13">13 hours</option>
-                                        <option value="14">14 hours</option>
-                                        <option value="15">15 hours</option>
-                                        <option value="16">16 hours</option>
-                                        <option value="17">17 hours</option>
-                                        <option value="18">18 hours</option>
-                                        <option value="19">19 hours</option>
-                                        <option value="20">20 hours</option>
-                                        <option value="21">21 hours</option>
-                                        <option value="22">22 hours</option>
-                                        <option value="23">23 hours</option>
-                                        <option value="24">24 hours</option>
-                                    </select>
-                                    <select class="form-control" id="input_minutes_worked" style="margin-top: 10px">
-                                        <option value="0">0 minuetes</option>
-                                        <option value="0.16">10 minutes</option>
-                                        <option value="0.33">20 minutes</option>
-                                        <option value="0.5">30 minutes</option>
-                                        <option value="0.66">40 minutes</option>
-                                        <option value="0.83">50 minutes</option>
-                                    </select>
-                                </div>
-        
-                                <div class="form-group">
-                                    <label for="input_tip" class="control-label">
-                                        <h3>Tip amount</h3>
-                                    </label>
-                                    <input type="number" class="form-control" id="input_tip_amount" placeholder="Example: 120" required>
-                                    <label data-error="wrong"></label>
-                                </div>
-        
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">
-                                        <h3>Notes</h3>
-                                    </label>
-                                    <textarea class="form-control" id="input_notes" rows="3"></textarea>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button id="submit_tip" type="button" data-dismiss="modal" class="btn btn-primary">Add tip</button>
-                        </div>
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- **************************************************** -->
+                    <!-- Inputs -->
+                    <!-- **************************************************** -->
+                    <div class="modal-body">
+                        <form data-toggle="validator" role="form">
+                            <div class="form-group">
+                                <h3>Hours Worked</h3>
+                                <select class="form-control" id="input_hours_worked">
+                                    <option value="1">1 hour</option>
+                                    <option value="2">2 hours</option>
+                                    <option value="3">3 hours</option>
+                                    <option value="4">4 hours</option>
+                                    <option value="5">5 hours</option>
+                                    <option value="6">6 hours</option>
+                                    <option value="7">7 hours</option>
+                                    <option value="8">8 hours</option>
+                                    <option value="9">9 hours</option>
+                                    <option value="10">10 hours</option>
+                                    <option value="11">11 hours</option>
+                                    <option value="12">12 hours</option>
+                                    <option value="13">13 hours</option>
+                                    <option value="14">14 hours</option>
+                                    <option value="15">15 hours</option>
+                                    <option value="16">16 hours</option>
+                                    <option value="17">17 hours</option>
+                                    <option value="18">18 hours</option>
+                                    <option value="19">19 hours</option>
+                                    <option value="20">20 hours</option>
+                                    <option value="21">21 hours</option>
+                                    <option value="22">22 hours</option>
+                                    <option value="23">23 hours</option>
+                                    <option value="24">24 hours</option>
+                                </select>
+                                <select class="form-control" id="input_minutes_worked" style="margin-top: 10px">
+                                    <option value="0">0 minuetes</option>
+                                    <option value="0.16">10 minutes</option>
+                                    <option value="0.33">20 minutes</option>
+                                    <option value="0.5">30 minutes</option>
+                                    <option value="0.66">40 minutes</option>
+                                    <option value="0.83">50 minutes</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input_tip" class="control-label">
+                                    <h3>Tip amount</h3>
+                                </label>
+                                <input type="number" class="form-control" id="input_tip_amount" placeholder="Example: 120" required>
+                                <label data-error="wrong"></label>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">
+                                    <h3>Notes</h3>
+                                </label>
+                                <textarea class="form-control" id="input_notes" rows="3"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="submit_tip" type="button" data-dismiss="modal" class="btn btn-primary">Add tip</button>
                     </div>
                 </div>
             </div>
+        </div>
         <!-- **************************************************** -->
         <!-- Body -->
         <!-- **************************************************** -->
-    <div class="row">
+        <div class="row">
             <div class="col-sm-12">
                 <h3>Total daily</h1>
                     <p id="total_weekly" class="wage_info">$
@@ -167,65 +167,83 @@
             </div>
         </div>
 
-    <br>
+        <br>
 
-    <!-- **************************************************** -->
-    <!-- Table -->
-    <!-- **************************************************** -->
+        <!-- **************************************************** -->
+        <!-- Table -->
+        <!-- **************************************************** -->
 
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Date Worked</th>
-                <th scope="col">Tip Amount</th>
-                <th scope="col">Comments</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row"></th>
-                <td id="date_worked"></td>
-                <td id="tip_amount"></td>
-                <td id="comments"></td>
-            </tr>
-        </tbody>
-    </table>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Date Worked</th>
+                    <th scope="col">Tip Amount</th>
+                    <th scope="col">Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"></th>
+                    <td id="ID"></td>
+                    <td id="date_worked"></td>
+                    <td id="tip_amount"></td>
+                    <td id="comments"></td>
+                </tr>
+            </tbody>
+        </table>
 
 
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/2.2.2/moment-duration-format.js"></script>
-    <script src="js/app.js"></script>
-    <script>
-        $("#submit_tip").on("click", function (event) {
-            event.preventDefault(); // Here we grab the form elements var currentSurvey
-            var hoursWorked = {
-                selection1: $("#input_tip_amount").val().trim(),
-                selection2: $("#input_hours_worked").val().trim(),
-                selection3: $("#input_notes").val().trim()
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/2.2.2/moment-duration-format.js"></script>
+        <script src="js/app.js"></script>
+        <script>
+            $("#submit_tip").on("click", function (event) {
+                event.preventDefault(); // Here we grab the form elements var currentSurvey
+
+                var hoursWorked = {
+                    tipAmountDaily: $("#input_tip_amount").val(),
+                    hoursWorkedDaily: $("#input_hours_worked").val(),
+                    minutesWorkedDaily: $("#input_minutes_worked").val(),
+                    notes: $("#input_notes").val(),
+                }
+
+
+
+                $.post("/api/day", hoursWorked, function (data) {
+
+                   var dateString = new Date(data.createdAt);
                
-            };
+                    var date = dateString.toLocaleDateString();
+                    
+                    console.log(date);
+
+                    $("#total_weekly_amount").text(data.input_tip_amount);
+                    $("#total_weekly_hours").text(moment.duration(data.input_totalhours_worked, "minutes").format());
+                    $("#total_weekly_hourly").text(data.input_hourly_wage);
+                    $("#total_weekly_tips").text(data.input_tip_amount);
+                    
+                    
+                    //populating table
+                    $("#ID").text(data.id);
+                    $("#date_worked").text(date);
+                    $("#tip_amount").text(data.input_tip_amount);
+                    $("#comments").text(data.input_notes);
 
 
-            $.post("/api/day", hoursWorked, function (data) {
-                alert("this works"); 
+                    //     $("#matchName").text(data.name);
+                    //     $("#myModal").modal();
+                    //     // window.location.reload();
 
-            //     $("#matchName").text(data.name);
-            //     $("#myModal").modal();
-            //     // window.location.reload();
+                    //     $(".form-control").val('');
 
-            //     $(".form-control").val('');
-
+                });
             });
-
-
-
-        });
-    </script>
+        </script>
 </body>
 
 </html>

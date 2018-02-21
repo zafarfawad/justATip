@@ -23,6 +23,34 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         },
+        input_minutes_worked: {
+            type: DataTypes.TEXT,
+            allownull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        input_daily_wage: {
+            type: DataTypes.TEXT,
+            allownull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        input_hourly_wage: {
+            type: DataTypes.TEXT,
+            allownull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        input_totalhours_worked: {
+            type: DataTypes.TEXT,
+            allownull: false,
+            validate: {
+                len: [1]
+            }
+        },
         input_notes: {
             type: DataTypes.TEXT,
             allownull: false,
