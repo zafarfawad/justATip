@@ -1,25 +1,31 @@
-var tipAmount = [];
-var hoursWorked = [];
-var notes = [];
 var salary = 5.03;
+var salaryTotalDaily;
+var totalDaily;
+var perHourDaily;
 
 $("#submit_tip").on("click", function () {
-    tipAmount = $("#input_tip_amount").val();
-    hoursWorked = $("#input_hours_worked").val();
-    notes = $("#input_notes").val()
-    console.log(tipAmount, hoursWorked, notes)
-    perHour();
+    var tipAmountDaily = $("#input_tip_amount").val();
+    var hoursWorkedDaily = $("#input_hours_worked").val();
+    var minutesWorkedDaily = $("#input_minutes_worked").val()
+    var notes = $("#input_notes").val();
+    dailyWage();
+    weeklyWage();
 
-    function perHour() {
-        var salaryTotal = salary * hoursWorked;
-        console.log (salaryTotal);
-        var perHour = (parseFloat(tipAmount)+parseFloat(salaryTotal))/parseFloat(hoursWorked);
-        console.log(perHour);
+    function dailyWage() {
+        totalHoursWorkedDaily = (parseFloat(hoursWorkedDaily) + parseFloat(minutesWorkedDaily));
+        totalSalaryDaily = (salary * hoursWorkedDaily).toFixed(2);
+        totalWageDaily = (parseFloat(tipAmountDaily) + parseFloat(totalSalaryDaily)).toFixed(2)
+        totalHourlyDaily = (totalWageDaily / parseFloat(totalHoursWorkedDaily)).toFixed(2);
+        console.log(totalHoursWorkedDaily)
 
-        // $( "#date_worked" ).prepend( document.date ); -> from sql 
-        $("#tip_amount ").prepend(tipAmount);
-        $("#comments").prepend(notes);
+        $("#total_weekly_amount").text(totalWageDaily);
+        $("#total_weekly_hours").text(moment.duration(totalHoursWorkedDaily, "minutes").format());
+        $("#total_weekly_hourly").text(totalHourlyDaily);
+        $("#total_weekly_tips").text(tipAmountDaily);
 
     }
-})
 
+    function weeklyWage() {
+        console.log("This is working!")
+    }
+});

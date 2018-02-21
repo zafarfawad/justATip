@@ -1,6 +1,7 @@
 /* ======================= Login and Register Page ======================= */
 body {
   padding-top: 90px;
+  text-align: center;
 }
 .panel-login {
   border-color: #ccc;
@@ -128,3 +129,31 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+h1{
+  text-align: center;
+ }
+ 
+ #total_weekly{
+   font-weight: bold;
+   font-size: 70px;
+ }
+ 
+ .wage_info{
+   font-weight: bold;
+   font-size: 40px;
+ }
+ 
+ #add_tip{
+   margin-top: 10%;
+ }
+ .input-group{
+   margin-top: 3%;
+ }
+ .modal fade{
+   font-size: 12px;
+   font-weight: bold;
+ }
+ .icon-bar{
+  background-color: #1092d8;
+ }
