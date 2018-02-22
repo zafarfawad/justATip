@@ -95,7 +95,7 @@
                                     <option value="24">24 hours</option>
                                 </select>
                                 <select class="form-control" id="input_minutes_worked" style="margin-top: 10px">
-                                    <option value="0">0 minuetes</option>
+                                    <option value="0">0 minutes</option>
                                     <option value="0.16">10 minutes</option>
                                     <option value="0.33">20 minutes</option>
                                     <option value="0.5">30 minutes</option>
@@ -173,25 +173,22 @@
         <!-- Table -->
         <!-- **************************************************** -->
 
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Date Worked</th>
-                    <th scope="col">Tip Amount</th>
-                    <th scope="col">Comments</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row"></th>
-                    <td id="ID"></td>
-                    <td id="date_worked"></td>
-                    <td id="tip_amount"></td>
-                    <td id="comments"></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Date Worked</th>
+                            <th scope="col">Tip Amount</th>
+                            <th scope="col">Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-hover" id="record">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
 
 
 
@@ -216,23 +213,25 @@
 
                 $.post("/api/day", hoursWorked, function (data) {
 
-                   var dateString = new Date(data.createdAt);
-               
+                    var dateString = new Date(data.createdAt);
+
                     var date = dateString.toLocaleDateString();
-                    
+
                     console.log(date);
 
                     $("#total_weekly_amount").text(data.input_tip_amount);
-                    $("#total_weekly_hours").text(moment.duration(data.input_totalhours_worked, "minutes").format());
+                    $("#total_weekly_hours").text(moment.duration(data.input_totalhours_worked,
+                        "minutes").format());
                     $("#total_weekly_hourly").text(data.input_hourly_wage);
                     $("#total_weekly_tips").text(data.input_tip_amount);
-                    
-                    
+
+
                     //populating table
-                    $("#ID").text(data.id);
-                    $("#date_worked").text(date);
-                    $("#tip_amount").text(data.input_tip_amount);
-                    $("#comments").text(data.input_notes);
+                    // $("#ID").text(data.id);
+                    $("#record").append("<tr>" + "<td>" + date + "</td>" + "<td>" + data.input_tip_amount +
+                        "</td>" + "<td>" + data.input_notes+"</td>"+"</tr>");
+                    // $("#tip_amount").text(data.input_tip_amount);
+                    // $("#comments").text(data.input_notes);
 
 
                     //     $("#matchName").text(data.name);

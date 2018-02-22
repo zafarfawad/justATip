@@ -160,10 +160,7 @@ h1{
 
  /* ======================= Table ======================= */
 
- #ID,
- #date_worked,
- #tip_amount,
- #comments {
+#record {
    text-align: left;
  }
 
