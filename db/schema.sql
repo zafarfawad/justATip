@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS `justATip`;
-CREATE DATABASE `justATip`;
+CREATE DATABASE 'justATip';
 
 create TABLE day (
 input_tip_amount VARCHAR(255),
