@@ -2,7 +2,6 @@
 
   "development": {
     "username": "root",
- 
     "password": "root",
     "database": "justATip",
     "host": "localhost",

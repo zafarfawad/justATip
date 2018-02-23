@@ -1,7 +1,6 @@
-// var sequelize = require("../config/connection.js");
-
 module.exports = function (sequelize, DataTypes) {
-    var User = sequelize.define("user", {
+    var user = sequelize.define("user", {
+
         username: {
             type: DataTypes.TEXT,
             allowNull: false,
@@ -10,13 +9,6 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         password: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        confirmPassword: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
@@ -45,13 +37,13 @@ module.exports = function (sequelize, DataTypes) {
             }
         }
     });
-    User.associate = function (models) {
+    user.associate = function (models) {
         // Associating user with day entry
         // When an user is deleted, also delete any associated tip info
-        User.hasMany(models.day, {
+        user.hasMany(models.day, {
             onDelete: "cascade"
         });
     };
 
-    return User;
+    return user;
 };

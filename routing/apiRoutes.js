@@ -8,16 +8,15 @@ module.exports = function(app,passport) {
 
 
   app.post('/auth/signup', passport.authenticate('local-signup'
-  , {
-    successRedirect: '/auth/success',
-    failureRedirect: '/auth/failure'
-  }
-),
+    , {
+      successRedirect: '/auth/success',
+      failureRedirect: '/auth/failure'
+    }
+  ),
     function (req, res) {
-      console.log(req);
+      console.log(req.body);
     }
   );
-
   app.post('/auth/login', passport.authenticate('local-signin'
   ,{
     successRedirect: '/auth/success',
