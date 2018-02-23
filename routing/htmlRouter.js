@@ -2,6 +2,12 @@
 // =============================================================
 var path = require("path");
 
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated())
+    return next();
+console.log(req.isAuthenticated());
+  res.redirect('/');
+}
 // Routes
 // =============================================================
 module.exports = function(app) {

@@ -2,8 +2,12 @@
 
   "development": {
     "username": "root",
+<<<<<<< HEAD
  
     "password": "",
+=======
+    "password": "root",
+>>>>>>> master
     "database": "justATip",
     "host": "localhost",
     "dialect": "mysql",
