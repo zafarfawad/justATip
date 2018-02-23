@@ -50,7 +50,7 @@
               <span class="glyphicon glyphicon-map-marker"></span>Location</a>
           </li>
           <li>
-            <a href="login.html">
+            <a href="">
               <span class="glyphicon glyphicon-log-out"></span>Logout</a>
           </li>
         </ul>
@@ -95,6 +95,27 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/history.js"></script>
-</body>
+
+        <script>
+          window.onload = function () {
+            historyRecords();
+
+            function historyRecords() {
+              $.get("/api/history", function (data) {
+
+                var dateString = new Date(data.createdAt);
+                var date = dateString.toLocaleDateString();
+
+                for (var i = 0; i < data.length; i++) {
+                  $("#history_record").append("<tr>" + "<td>" + data[i].createdAt + "</td>" + "<td>" +
+                    data[i].input_tip_amount +
+                    "</td>" + "<td>" + data[i].input_notes + "</td>" + "</tr>");
+                }
+
+              });
+            };
+          };
+        </script>
+  </body>
 
 </html>

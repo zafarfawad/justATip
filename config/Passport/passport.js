@@ -58,6 +58,7 @@ module.exports = function (passport, user) {
                         zipCode: req.body.zipCode,
                         jobTitle: req.body.jobTitle,
                         hourlyWage: req.body.hourlyWage
+
                     };
 
 
@@ -89,8 +90,8 @@ module.exports = function (passport, user) {
             passReqToCallback: true
         },
 
-        function (req, email, password, done) {
-
+        function (req, username, password, done) {
+            console.log(username);
             var User = user;
 
             var isValidPassword = function (userpass, password) {
@@ -118,6 +119,7 @@ module.exports = function (passport, user) {
                 }
 
                 var userinfo = user.get();
+                console.log('fawadtest11', userinfo);
 
                 return done(null, userinfo);
 
@@ -130,6 +132,7 @@ module.exports = function (passport, user) {
                 });
 
             });
+
         }
     ));
 

@@ -76,7 +76,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="home" method="post" role="form" style="display: block;">
+								<form id="login-form" action="home.html" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required>
 									</div>
@@ -220,8 +220,28 @@
 			}
 			$.post("/auth/signup", userInfo, function (data) {
 				console.log(userInfo);
-				if (!data) {
+				if (data) {
+					window.location.href = window.location.origin + '/';
+				} else {
 					console.log("signup failed");
+				}
+
+			});
+		});
+
+		$("#login-submit").on("click", function (event) {
+			event.preventDefault();
+
+			var userInfo = {
+				username: $("#username").val(),
+				password: $("#password_login").val()
+			}
+			$.post("/auth/login", userInfo, function (data) {
+				console.log(userInfo);
+				if (data) {
+					window.location.href = window.location.origin + '/home';
+				} else {
+					console.log("signin failed");
 				}
 			});
 		});

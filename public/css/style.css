@@ -161,7 +161,7 @@ h1{
 
  /* ======================= Table ======================= */
 
-#record {
+#record, #history-record {
    text-align: left;
  }
 
