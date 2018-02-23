@@ -3,11 +3,11 @@
   "development": {
     "username": "root",
  
-    "password": "Chinitamax87*",
+    "password": "",
     "database": "justATip",
     "host": "localhost",
     "dialect": "mysql",
-    "port": "8889"
+    "port": "3306"
   },
   
   
