@@ -7,9 +7,12 @@ $("#submit_tip").on("click", function (event) {
         notes: $("#input_notes").val(),
     }
     $.post("/api/day", hoursWorked, function (data) {
+       
         var dateString = new Date(data.createdAt);
         var date = dateString.toLocaleDateString();
-        console.log(date);
+
+
+
         $("#total_weekly_amount").text(data.input_tip_amount);
         $("#total_weekly_hours").text(moment.duration(data.input_totalhours_worked,
             "minutes").format());
@@ -25,5 +28,13 @@ $("#submit_tip").on("click", function (event) {
         //     $("#myModal").modal();
         //     // window.location.reload();
         //     $(".form-control").val('');
+    });
+
+    $("#logout-button").on("click", function (event) {
+        event.preventDefault();
+        $.get("/auth/logout", function (data,err) {
+            window.location.href = window.location.origin + '/';
+
+        });
     });
 });

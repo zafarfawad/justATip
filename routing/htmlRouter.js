@@ -25,7 +25,7 @@ module.exports = function(app) {
   });
 
   //user's page
-  app.get("/home", function(req, res) {
+  app.get("/home",isLoggedIn, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/home.html"));
   });
 
