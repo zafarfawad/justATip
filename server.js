@@ -25,6 +25,8 @@ var db = require("./models");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+
 // For Passport
 app.use(session({ secret: 'team JAT', resave: true, saveUninitialized: true })); // session secret
 app.use(passport.initialize());
