@@ -104,35 +104,79 @@
 										</div>
 									</div>
 								</form>
+
 								<!-- =============================================================================== -->
 								<!-- REGISTER -->
 								<!-- =============================================================================== -->
+
+								<!-- This Segment Displays The Validation Rule -->
+								<p id="head" class="validation"></p>
+
 								<form id="register-form" action="..public/home.html" method="post" role="form" style="display: none;">
 									<div class="form-group">
+										<label>Username </label>
+										<br>
 										<input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Name" value="">
+										<!-- This Segment Displays The Validation Rule -->
+										<p id="p1" class="validation"></p>
 									</div>
 
 									<div class="form-group">
+										<label>Job Title </label>
+										<br>
 										<input type="text" name="jobTitle" id="jobTitle" tabindex="1" class="form-control" placeholder="Job Title" value="">
+										<!-- This Segment Displays The Validation Rule -->
+										<p id="p2" class="validation"></p>
 									</div>
 									<div class="form-group">
+										<label>Hourly Wage </label>
+										<br>
 										<input type="text" name="hourlyWage" id="hourlyWage" tabindex="1" class="form-control" placeholder="Hourly Wage" value="">
+										<!-- This Segment Displays The Validation Rule -->
+										<p id="p3" class="validation"></p>
 									</div>
 									<div class="form-group">
+										<label>Zip code </label>
+										<br>
 										<input type="text" name="zipCode" id="zipCode" tabindex="1" class="form-control" placeholder="Zip Code" value="">
+										<!-- This Segment Displays The Validation Rule -->
+										<p id="p4" class="validation"></p>
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="signup-password" tabindex="1" class="form-control" placeholder="Password" value="">
-
+										<label> Password </label>
+										<br>
+										<p>
+											<span class="glyphicon glyphicon-question-sign" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+											    aria-controls="collapseExample"></span>
+										</p>
+										<div class="collapse" id="collapseExample">
+											<div class="card card-body">
+												Password must be between 4 and 8 digits long and include at least one numeric digit
+											</div>
+										</div>
+										<input type="password" name="signup_password" id="signup_password" tabindex="1" class="form-control" placeholder="Password"
+										    value="">
+										<!-- This Segment Displays The Validation Rule -->
+										<p id="p5" class="validation"></p>
 									</div>
 									<div class="form-group">
+										<label>Confirm Password </label>
+										<br>
 										<input type="password" name="confirm_password" id="confirm_password" tabindex="1" class="form-control" placeholder="Confirm Password"
 										    value="">
+										<!-- This Segment Displays The Validation Rule -->
+										<p id="p6" class="validation"></p>
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
 												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+												<br>
+												<br>
+												<input type="button" name="reset-submit" id="reset-submit" onclick="resetform()" tabindex="4" class="form-control btn btn-register"
+												    value="Reset Form">
+												<!-- This Segment Displays The Validation Rule -->
+												<p id="p7" class="validation"></p>
 											</div>
 										</div>
 									</div>
@@ -146,24 +190,15 @@
 	</div>
 
 	<!-- =============================================================================== -->
-	<!-- REGISTER -->
+	<!-- FOOTER -->
 	<!-- =============================================================================== -->
 
-	<footer class="page-footer blue center-on-small-only">
-
+	<footer class="site-footer">
 		<div class="container-fluid">
-			<div class="row">
-
-				<!--Copyright-->
-				<div class="footer-copyright">
-					<div class="container-fluid">
-						© 2018 Copyright:
-						<a href="Horoku.com"> JustATip LLC </a>
-
-					</div>
-				</div>
+			© 2018 Copyright:
+			<a href="Horoku.com"> JustATip LLC </a>
+		</div>
 	</footer>
-	<!--/.Footer-->
 	<!--/.Footer-->
 
 
@@ -176,7 +211,6 @@
 	<script>
 		$("#register-submit").on("click", function (event) {
 			event.preventDefault(); // Here we grab the form elements var currentSurvey
-
 			var userInfo = {
 				username: $("#name").val(),
 				jobTitle: $("#jobTitle").val(),
@@ -184,9 +218,6 @@
 				zipCode: $("#zipCode").val(),
 				password: $("#signup-password").val()
 			}
-
-
-
 			$.post("/auth/signup", userInfo, function (data) {
 				console.log(userInfo);
 				if (data) {
@@ -194,6 +225,7 @@
 				} else {
 					console.log("signup failed");
 				}
+
 			});
 		});
 
