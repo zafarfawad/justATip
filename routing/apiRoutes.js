@@ -40,6 +40,7 @@ module.exports = function(app) {
           totalHourlyDaily: totalHourlyDaily
         } 
       } 
+      
 
       dailyWage();
 
