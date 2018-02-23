@@ -83,6 +83,7 @@ module.exports = function(app,passport) {
           totalHourlyDaily: totalHourlyDaily
         } 
       } 
+      
 
       dailyWage();
 
