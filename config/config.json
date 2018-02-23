@@ -23,5 +23,12 @@
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
-  }
+  },
+    "jawsDB": {
+    "port": 3306,
+    "host": "v02yrnuhptcod7dk.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "user": "mnvt9fkutwhp2jip",
+    "password": "pfo54302n4968r6v",
+    "database": "justATip"
+    }
 }
