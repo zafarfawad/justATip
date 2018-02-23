@@ -216,7 +216,7 @@
 				jobTitle: $("#jobTitle").val(),
 				hourlyWage: $("#hourlyWage").val(),
 				zipCode: $("#zipCode").val(),
-				password: $("#signup-password").val()
+				password: $("#signup_password").val()
 			}
 			$.post("/auth/signup", userInfo, function (data) {
 				console.log(userInfo);

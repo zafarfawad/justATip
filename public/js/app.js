@@ -26,12 +26,6 @@ $("#submit_tip").on("click", function (event) {
             "</td>" + "<td>" + data.input_notes + "</td>" + "</tr>");
     });
 
-    $("#logout-button").on("click", function (event) {
-        event.preventDefault();
-        $.get("/auth/logout", function (data,err) {
-            window.location.href = window.location.origin + '/';
 
-        });
-    });
 });
 

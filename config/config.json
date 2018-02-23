@@ -2,11 +2,11 @@
 
   "development": {
     "username": "root",
-    "password": "Chinitamax87*",
+    "password": "root",
     "database": "justATip",
     "host": "localhost",
     "dialect": "mysql",
-    "port": "3306"
+    "port": "8889"
   },
   
   
