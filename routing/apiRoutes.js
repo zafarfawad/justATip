@@ -66,7 +66,7 @@ module.exports = function(app,passport) {
     // POST route for saving a new day
     
     
-  app.post("/api/day", isLoggedIn, function(req, res) {
+  app.post("/api/day", function(req, res) {
       var salary = 5.03;
 
       function dailyWage() {
@@ -95,7 +95,7 @@ module.exports = function(app,passport) {
           input_daily_wage: totalWageDaily,
           input_hourly_wage: totalHourlyDaily,
           input_notes: req.body.notes,
-          input_user_id: req.user.id
+          // input_user_id: req.user.id
 
         }).then(function(dbday) {
           // We have access to the new day as an argument inside of the callback function

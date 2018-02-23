@@ -2,8 +2,7 @@
 
   "development": {
     "username": "root",
- 
-    "password": "Chinitamax87*",
+    "password": "root",
     "database": "justATip",
     "host": "localhost",
     "dialect": "mysql",
