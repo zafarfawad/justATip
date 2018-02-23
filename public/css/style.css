@@ -102,7 +102,6 @@ border-color: #53A3CD;
 
 /* ======================= Navbar ======================= */
 
-/* NavBar */
 .my-navbar{
   background-color: rgb(16, 146, 216);
   color: white;
@@ -116,19 +115,14 @@ a.navbar-brand{
 
 .navbar-default .navbar-brand {
   color: white;
+
 }
 
 li a{
   color: white;
 }
 
-
-footer {
-  position: fixed;
-  height: 100px;
-  bottom: 0;
-  width: 100%;
-}
+  /* ======================= Tip Display and Module ======================= */
 
 h1{
   text-align: center;
@@ -158,10 +152,35 @@ h1{
   background-color: #1092d8;
  }
 
+  /* ======================= Validation text ======================= */
+
+ .validation{
+   color: rgb(211, 119, 33);
+ }
+
+
  /* ======================= Table ======================= */
 
 #record {
    text-align: left;
  }
+
+  /* ======================= Footer ======================= */
+
+  footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .site-footer, .page-wrap:after {
+    /* .push must be the same height as footer */
+      height: 30px; 
+  }
+  .site-footer {
+    background: white;
+  }
+
 
   
