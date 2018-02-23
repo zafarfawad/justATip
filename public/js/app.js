@@ -31,44 +31,84 @@
 // });
 
 
-$("#submit_tip").on("click", function (event) {
-    event.preventDefault(); // Here we grab the form elements var currentSurvey
+// $("#submit_tip").on("click", function (event) {
+//     event.preventDefault(); // Here we grab the form elements var currentSurvey
+            // $("#submit_tip").on("click", function (event) {
+            //     event.preventDefault(); // Here we grab the form elements var currentSurvey
 
-    var hoursWorked = {
-        tipAmountDaily: $("#input_tip_amount").val(),
-        hoursWorkedDaily: $("#input_hours_worked").val(),
-        minutesWorkedDaily: $("#input_minutes_worked").val(),
-        notes: $("#input_notes").val(),
-    }
+            //     var hoursWorked = {
+            //         tipAmountDaily: $("#input_tip_amount").val(),
+            //         hoursWorkedDaily: $("#input_hours_worked").val(),
+            //         minutesWorkedDaily: $("#input_minutes_worked").val(),
+            //         notes: $("#input_notes").val(),
+            //     }
+// >>>>>>> master
 
-
-
-    $.post("/api/day", hoursWorked, function (data) {
-
-        var dateString = new Date(data.createdAt);
-        var date = dateString.toLocaleDateString();
-
-        $("#total_weekly_amount").text(data.input_tip_amount);
-        $("#total_weekly_hours").text(moment.duration(data.input_totalhours_worked,
-            "minutes").format());
-        $("#total_weekly_hourly").text(data.input_hourly_wage);
-        $("#total_weekly_tips").text(data.input_tip_amount);
+//     var hoursWorked = {
+//         tipAmountDaily: $("#input_tip_amount").val(),
+//         hoursWorkedDaily: $("#input_hours_worked").val(),
+//         minutesWorkedDaily: $("#input_minutes_worked").val(),
+//         notes: $("#input_notes").val(),
+//     }
 
 
-        //populating table
-        $("#record").append("<tr>" + "<td>" + date + "</td>" + "<td>" + data.input_tip_amount +
-            "</td>" + "<td>" + data.input_notes + "</td>" + "</tr>");
+// <<<<<<< HEAD
+
+//     $.post("/api/day", hoursWorked, function (data) {
+
+//         var dateString = new Date(data.createdAt);
+//         var date = dateString.toLocaleDateString();
+
+//         $("#total_weekly_amount").text(data.input_tip_amount);
+//         $("#total_weekly_hours").text(moment.duration(data.input_totalhours_worked,
+//             "minutes").format());
+//         $("#total_weekly_hourly").text(data.input_hourly_wage);
+//         $("#total_weekly_tips").text(data.input_tip_amount);
+
+            //     $.post("/api/day", hoursWorked, function (data) {
+
+            //         var dateString = new Date(data.createdAt);
+
+            //         var date = dateString.toLocaleDateString();
+
+            //         console.log(date);
+
+            //         $("#total_weekly_amount").text(data.input_tip_amount);
+            //         $("#total_weekly_hours").text(moment.duration(data.input_totalhours_worked,
+            //             "minutes").format());
+            //         $("#total_weekly_hourly").text(data.input_hourly_wage);
+            //         $("#total_weekly_tips").text(data.input_tip_amount);
+// >>>>>>> master
+
+//         //populating table
+//         $("#record").append("<tr>" + "<td>" + date + "</td>" + "<td>" + data.input_tip_amount +
+//             "</td>" + "<td>" + data.input_notes + "</td>" + "</tr>");
+
+            //         //populating table
+            //         // $("#ID").text(data.id);
+            //         $("#record").append("<tr>" + "<td>" + date + "</td>" + "<td>" + data.input_tip_amount +
+            //             "</td>" + "<td>" + data.input_notes+"</td>"+"</tr>");
+            //         // $("#tip_amount").text(data.input_tip_amount);
+            //         // $("#comments").text(data.input_notes);
+
+//     });
+// });
+
+// $("#logout-button").on("click", function (event) {
+//     event.preventDefault(); // Here we grab the form elements var currentSurvey
+
+//     $.get("/auth/logout", function (data) {
+//         window.location.href = window.location.origin;
 
 
-    });
-});
+//     });
+// });
+            //         //     $("#matchName").text(data.name);
+            //         //     $("#myModal").modal();
+            //         //     // window.location.reload();
 
-$("#logout-button").on("click", function (event) {
-    event.preventDefault(); // Here we grab the form elements var currentSurvey
+            //         //     $(".form-control").val('');
 
-    $.get("/auth/logout", function (data) {
-        window.location.href = window.location.origin;
-
-
-    });
-});
+            //     });
+            // });
+    
