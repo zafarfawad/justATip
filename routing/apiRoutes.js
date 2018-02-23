@@ -107,7 +107,7 @@ module.exports = function(app,passport) {
   // req.params.id
   
   
-  router.get("/auth/logout", function (req, res) {
+  app.get("/auth/logout", function (req, res) {
     req.session.destroy(function (err) {
       res.redirect('/');
     });
