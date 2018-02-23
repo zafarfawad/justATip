@@ -2,12 +2,11 @@
 
   "development": {
     "username": "root",
- 
     "password": "berdovka0603",
     "database": "justATip",
     "host": "localhost",
     "dialect": "mysql",
-    "port": "3306"
+    "port": "8889"
   },
   
   

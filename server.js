@@ -1,4 +1,3 @@
-
 // ==============================================================================
 // DEPENDENCIES
 // Series of npm packages that we will use to give our server useful functionality
@@ -35,7 +34,7 @@ require('./config/Passport/passport.js')(passport, db.user);
 // Express.static will allow you to set a static directory for things like your
 // front end javascript, images, etc
 // ================================================================================
-app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 // ================================================================================
 // ROUTER
@@ -49,7 +48,7 @@ require("./routing/htmlRouter")(app, passport);
 // LISTENER
 // The below code effectively "starts" our server
 // =============================================================================
-db.sequelize.sync({force:true}).then(function(){
+db.sequelize.sync({ force: true }).then(function () {
 
     app.listen(PORT, function () {
         console.log("App listening on PORT: " + PORT);
