@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 app.use(session({ secret: 'team JAT', resave: true, saveUninitialized: true })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-require('./config/passport/passport.js')(passport, db.user);
+require('./config/Passport/passport.js')(passport, db.user);
 // ================================================================================
 // Express.static will allow you to set a static directory for things like your
 // front end javascript, images, etc
@@ -51,8 +51,8 @@ require("./routing/htmlRouter")(app, passport);
 // =============================================================================
 db.sequelize.sync({force:true}).then(function(){
 
-app.listen(PORT, function () {
-    console.log("App listening on PORT: " + PORT);
+    app.listen(PORT, function () {
+        console.log("App listening on PORT: " + PORT);
 
-});
+    });
 });
