@@ -8,11 +8,10 @@ $("#submit_tip").on("click", function (event) {
         
     }
     $.post("/api/day", hoursWorked, function (data) {
+       
         var dateString = new Date(data.createdAt);
         var date = dateString.toLocaleDateString();
-        console.log(date);
 
-        
 
         $("#total_weekly_amount").text(data.input_tip_amount);
 
@@ -26,12 +25,13 @@ $("#submit_tip").on("click", function (event) {
         $("#record").append("<tr>" + "<td>" + date + "</td>" + "<td>" + data.input_tip_amount +
             "</td>" + "<td>" + data.input_notes + "</td>" + "</tr>");
     });
-});
 
-$("#add_tip").on("click", function(){
-    $("#input_hours_worked").val("1");
-    $("#input_minutes_worked").val("0");
-    $("#input_tip_amount").val("")
-    $("#input_notes").val("")
+    $("#logout-button").on("click", function (event) {
+        event.preventDefault();
+        $.get("/auth/logout", function (data,err) {
+            window.location.href = window.location.origin + '/';
+
+        });
+    });
 });
 

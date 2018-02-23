@@ -24,7 +24,7 @@ module.exports = function(app,passport) {
   }
 ),
     function (req, res) {
-
+      console.log('fawadlogin',res)
     }
   );
 
@@ -42,26 +42,36 @@ module.exports = function(app,passport) {
     });
   })
 
+  
 
     // GET route for getting all of the day
     app.get("/api/day", function(req, res) {
       // findAll returns all entries for a table when used with no options
-      db.day.findAll({}).then(function(dbday) {
+      db.day.findAll({
+        where: {
+          input_user_id: req.user.id
+
+        }
+      }).then(function(dbdayrecord) {
         // We have access to the day as an argument inside of the callback function
-        res.json(dbday);
+        res.json(dbdayrecord);
       });
     });
-    // Get rotue for retrieving a single day
-  app.get("/api/day/:id", function(req, res) {
-    db.day.findOne({
+//Retrieve History
+  app.get("/api/history", function (req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.day.findAll({
       where: {
-        id: req.params.id
+        input_user_id: req.user.id
+
       }
-    })
-    .then(function(dbday) {
-      res.json(dbday);
+    }).then(function (dbHistoryrecord) {
+      // We have access to the day as an argument inside of the callback function
+      res.json(dbHistoryrecord);
     });
   });
+    
+
     // POST route for saving a new day
     
     
@@ -94,12 +104,13 @@ module.exports = function(app,passport) {
           input_daily_wage: totalWageDaily,
           input_hourly_wage: totalHourlyDaily,
           input_notes: req.body.notes,
-          // input_user_id: req.user.id
+          input_user_id: req.user.id,
+          input_user_name: req.user.username
+
 
         }).then(function(dbday) {
           // We have access to the new day as an argument inside of the callback function
           res.json(dbday);
-          console.log('backend', dbday.id)
 
         });
     });
@@ -107,11 +118,24 @@ module.exports = function(app,passport) {
   // req.params.id
   
   
-  app.get("/auth/logout", function (req, res) {
-    req.session.destroy(function (err) {
-      res.redirect('/');
-    });
-  })
+  // app.get("/auth/logout", function (req, res) {
+  //   req.session.destroy(function (err) {
+  //     deleteAllCookies();
+  //     res.redirect('/');
+  //   });
+  // })
+
+
+  function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i];
+      var eqPos = cookie.indexOf("=");
+      var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+  }
 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
