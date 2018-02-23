@@ -41,7 +41,7 @@
                     </li>
                     <li>
                         <a href="login.html">
-                            <span class="glyphicon glyphicon-log-out"></span>Logout</a>
+                            <span class="glyphicon glyphicon-log-out" id="logout-button"></span>Logout</a>
                     </li>
                 </ul>
             </div>
@@ -214,10 +214,7 @@
                 $.post("/api/day", hoursWorked, function (data) {
 
                     var dateString = new Date(data.createdAt);
-
                     var date = dateString.toLocaleDateString();
-
-                    console.log(date);
 
                     $("#total_weekly_amount").text(data.input_tip_amount);
                     $("#total_weekly_hours").text(moment.duration(data.input_totalhours_worked,
@@ -227,18 +224,19 @@
 
 
                     //populating table
-                    // $("#ID").text(data.id);
                     $("#record").append("<tr>" + "<td>" + date + "</td>" + "<td>" + data.input_tip_amount +
-                        "</td>" + "<td>" + data.input_notes+"</td>"+"</tr>");
-                    // $("#tip_amount").text(data.input_tip_amount);
-                    // $("#comments").text(data.input_notes);
+                        "</td>" + "<td>" + data.input_notes + "</td>" + "</tr>");
 
 
-                    //     $("#matchName").text(data.name);
-                    //     $("#myModal").modal();
-                    //     // window.location.reload();
+                });
+            });
 
-                    //     $(".form-control").val('');
+            $("#logout-button").on("click", function (event) {
+                event.preventDefault(); // Here we grab the form elements var currentSurvey
+
+                $.get("/auth/logout", function (data) {
+                    window.location.href = window.location.origin;
+
 
                 });
             });

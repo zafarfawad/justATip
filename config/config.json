@@ -1,12 +1,15 @@
 {
-"development": {
+
+  "development": {
     "username": "root",
-    "password": "berdovka0603",
+    "password": "root",
     "database": "justATip",
     "host": "localhost",
     "dialect": "mysql",
-    "port": "3306"
+    "port": "8889"
   },
+  
+  
   "test": {
     "username": "root",
     "password": null,
