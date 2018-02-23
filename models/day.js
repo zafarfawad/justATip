@@ -2,13 +2,13 @@
 
 module.exports = function (sequelize, DataTypes) {
     var day = sequelize.define("day", {
-        // id: {
-        //     type: DataTypes.INTEGER,
-        //     allownull: false,
-        //     validate: {
-        //         len: [1]
-        //     }
-        // },
+        input_user_id: {
+            type: DataTypes.INTEGER,
+            allownull: false,
+            validate: {
+                len: [1]
+            }
+        },
         input_tip_amount: {
             type: DataTypes.TEXT,
             allownull: false,

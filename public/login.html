@@ -121,11 +121,12 @@
 										<input type="text" name="zipCode" id="zipCode" tabindex="1" class="form-control" placeholder="Zip Code" value="">
 									</div>
 									<div class="form-group">
-										<input type="text" name="password" id="password" tabindex="1" class="form-control" placeholder="Password" value="">
+										<input type="password" name="password" id="signup-password" tabindex="1" class="form-control" placeholder="Password" value="">
 
 									</div>
 									<div class="form-group">
 										<input type="text" name="confirmPassword" id="confirmPassword" tabindex="1" class="form-control" placeholder="Confirm Password"
+										<input type="password" name="confirm-password" id="confirm-password" tabindex="1" class="form-control" placeholder="Confirm Password"
 										    value="">
 									</div>
 									<div class="form-group">
@@ -153,14 +154,14 @@
 		<div class="container-fluid">
 			<div class="row">
 
-		<!--Copyright-->
-		<div class="footer-copyright">
-			<div class="container-fluid">
-				© 2018 Copyright:
-				<a href="Horoku.com"> JustATip LLC </a>
+				<!--Copyright-->
+				<div class="footer-copyright">
+					<div class="container-fluid">
+						© 2018 Copyright:
+						<a href="Horoku.com"> JustATip LLC </a>
 
-			</div>
-		</div>
+					</div>
+				</div>
 	</footer>
 	<!--/.Footer-->
 
@@ -170,6 +171,31 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<script src="js/login.js"></script>
+
+	<script>
+		$("#register-submit").on("click", function (event) {
+			event.preventDefault(); // Here we grab the form elements var currentSurvey
+
+			var userInfo = {
+				username: $("#name").val(),
+				jobTitle: $("#jobTitle").val(),
+				hourlyWage: $("#hourlyWage").val(),
+				zipCode: $("#zipCode").val(),
+				password: $("#signup-password").val()
+			}
+
+
+
+			$.post("/auth/signup", userInfo, function (data) {
+				console.log(userInfo);
+				if(!data){
+					console.log("signup failed");
+				}
+
+
+			});
+		});
+	</script>
 </body>
 
 </html>

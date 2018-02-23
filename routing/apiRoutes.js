@@ -1,5 +1,48 @@
 var db = require("../models");
-module.exports = function(app) {
+var router = require("express").Router();
+var path = require("path");
+var moment = require("moment");
+var passport = require("passport");
+
+module.exports = function(app,passport) {
+
+
+  app.post('/auth/signup', passport.authenticate('local-signup'
+  , {
+    successRedirect: '/auth/success',
+    failureRedirect: '/auth/failure'
+  }
+),
+    function (req, res) {
+      console.log(req);
+    }
+  );
+
+  app.post('/auth/login', passport.authenticate('local-signin'
+  ,{
+    successRedirect: '/auth/success',
+    failureRedirect: '/auth/failure'
+  }
+),
+    function (req, res) {
+
+    }
+  );
+
+  app.get("/auth/success", function (req, res) {
+    res.json(true);
+  });
+
+  app.get("/auth/failure", function (req, res) {
+    res.json(false);
+  });
+
+  app.get("/auth/logout", function (req, res) {
+    req.session.destroy(function (err) {
+      res.redirect('/');
+    });
+  })
+
 
     // GET route for getting all of the day
     app.get("/api/day", function(req, res) {
@@ -23,7 +66,7 @@ module.exports = function(app) {
     // POST route for saving a new day
     
     
-    app.post("/api/day", function(req, res) {
+  app.post("/api/day", isLoggedIn, function(req, res) {
       var salary = 5.03;
 
       function dailyWage() {
@@ -44,8 +87,6 @@ module.exports = function(app) {
 
       dailyWage();
 
-      console.log('fawad',totalWageDaily);
-
         db.day.create({
           input_hours_worked: req.body.hoursWorkedDaily,
           input_minutes_worked: req.body.minutesWorkedDaily,
@@ -54,6 +95,7 @@ module.exports = function(app) {
           input_daily_wage: totalWageDaily,
           input_hourly_wage: totalHourlyDaily,
           input_notes: req.body.notes,
+          input_user_id: req.user.id
 
         }).then(function(dbday) {
           // We have access to the new day as an argument inside of the callback function
@@ -66,10 +108,18 @@ module.exports = function(app) {
   // req.params.id
   
   
-  
-  
-  
-  
+  router.get("/auth/logout", function (req, res) {
+    req.session.destroy(function (err) {
+      res.redirect('/');
+    });
+  })
+
+  function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+      return next();
+
+    res.redirect('/');
+  }
   
   app.delete("/api/day/:id", function(req, res) {
     // We just have to specify which day we want to destroy with "where"

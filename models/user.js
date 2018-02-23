@@ -2,16 +2,7 @@
 
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("user", {
-        // id: {
-        //     type: DataTypes.INTERGER,
-        //     allowNull: false,
-        //     // Primarykey: true,
-
-        //     validate: {
-        //         len: [1]
-        //     }
-        // },
-        name: {
+        username: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {

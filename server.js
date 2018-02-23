@@ -6,6 +6,9 @@
 var path = require("path");
 var express = require("express");
 var bodyParser = require("body-parser");
+var passport = require('passport');
+var session = require('express-session');
+var exphbs = require('express-handlebars');
 
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -23,7 +26,11 @@ var db = require("./models");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
+// For Passport
+app.use(session({ secret: 'team JAT', resave: true, saveUninitialized: true })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+require('./config/passport/passport.js')(passport, db.user);
 // ================================================================================
 // Express.static will allow you to set a static directory for things like your
 // front end javascript, images, etc
@@ -35,8 +42,8 @@ app.use(express.static(path.join(__dirname,"public")));
 // The below points our server to a series of "route" files.
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 // ================================================================================
-require("./routing/apiRoutes")(app);
-require("./routing/htmlRouter")(app);
+require("./routing/apiRoutes")(app, passport);
+require("./routing/htmlRouter")(app, passport);
 
 // =============================================================================
 // LISTENER
