@@ -9,13 +9,13 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1]
             }
         },
-        input_user_name: {
-            type: DataTypes.TEXT,
-            allownull: false,
-            validate: {
-                len: [1]
-            }
-        },
+        // input_user_name: {
+        //     type: DataTypes.TEXT,
+        //     allownull: false,
+        //     validate: {
+        //         len: [1]
+        //     }
+        // },
         input_tip_amount: {
             type: DataTypes.TEXT,
             allownull: false,

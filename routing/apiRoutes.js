@@ -103,7 +103,7 @@ module.exports = function (app, passport) {
       input_hourly_wage: totalHourlyDaily,
       input_notes: req.body.notes,
       input_user_id: req.user.id,
-      input_user_name: req.user.username
+      // input_user_name: req.user.username
 
 
     }).then(function (dbday) {
