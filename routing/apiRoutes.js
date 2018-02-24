@@ -12,7 +12,6 @@ module.exports = function (app, passport) {
       failureRedirect: '/auth/failure'
     }),
     function (req, res) {
-      console.log(req.body);
     }
   );
   app.post('/auth/login', passport.authenticate('local-signin', {
@@ -20,7 +19,7 @@ module.exports = function (app, passport) {
       failureRedirect: '/auth/failure'
     }),
     function (req, res) {
-      console.log('fawadlogin', res)
+
     }
   );
 
@@ -53,6 +52,7 @@ module.exports = function (app, passport) {
     }).then(function (dbdayrecord) {
       // We have access to the day as an argument inside of the callback function
       res.json(dbdayrecord);
+      console.log('fawad',req.user);
     });
   });
   //Retrieve History
@@ -74,7 +74,8 @@ module.exports = function (app, passport) {
 
 
   app.post("/api/day", function (req, res) {
-    var salary = 5.03;
+   // getting salary info from the user table.
+    var salary = req.user.hourlyWage;
 
     function dailyWage() {
       totalHoursWorkedDaily = (parseFloat(req.body.hoursWorkedDaily) + parseFloat(req.body.minutesWorkedDaily));

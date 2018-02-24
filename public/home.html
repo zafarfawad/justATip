@@ -212,7 +212,7 @@
 
                 function dayRecords() {
                     $.get("/api/day", function (data) {
-
+                            console.log(data);
                         for (var i = 0; i < data.length; i++) {
                             $("#record").append("<tr>" + "<td>" + data[i].createdAt + "</td>" + "<td>" +
                                 data[i].input_tip_amount +

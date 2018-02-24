@@ -13,7 +13,7 @@ $("#submit_tip").on("click", function (event) {
         var date = dateString.toLocaleDateString();
 
 
-        $("#total_weekly_amount").text(data.input_tip_amount);
+        $("#total_weekly_amount").text(data.input_daily_wage);
 
         $("#total_weekly_hours").text(moment.duration(data.input_totalhours_worked,
             "minutes").format());
