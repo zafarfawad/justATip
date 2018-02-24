@@ -223,4 +223,9 @@ module.exports = function (app, passport) {
     });
   });
 
+  router.get("/about", function(req, res) {
+      console.log("here");
+      res.render("index");
+  });
+
 };
