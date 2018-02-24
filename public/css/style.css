@@ -1,4 +1,7 @@
 /* ======================= Login and Register Page ======================= */
+.modal fade{
+  font-family: 'Fjalla One', sans-serif;
+}
 body {
   padding-top: 90px;
   text-align: center;
@@ -130,12 +133,13 @@ h1{
  
  #total_weekly{
    font-weight: bold;
-   font-size: 70px;
+   font-size: 50px;
  }
  
  .wage_info{
    font-weight: bold;
-   font-size: 40px;
+   font-size: 30px;
+   font-family: 'Krona One', sans-serif;
  }
  
  #add_tip{
