@@ -52,7 +52,6 @@ module.exports = function (app, passport) {
     }).then(function (dbdayrecord) {
       // We have access to the day as an argument inside of the callback function
       res.json(dbdayrecord);
-      console.log('fawad',req.user);
     });
   });
   //Retrieve History
@@ -60,17 +59,70 @@ module.exports = function (app, passport) {
     // findAll returns all entries for a table when used with no options
     db.day.findAll({
       where: {
-        input_user_id: req.user.id,
+        input_user_id: req.user.id
       },
-
     }).then(function (dbHistoryrecord) {
       // We have access to the day as an argument inside of the callback function
       res.json(dbHistoryrecord);
     });
   });
 
+  app.get("/api/totalDailyTip", function (req, res) {
+    // findAll returns all entries for a table when used with no options
 
-  // POST route for saving a new day
+    db.day.sum('input_tip_amount', {
+      where: {
+        input_user_id: req.user.id,
+      }
+    }).then(function (dbtotalDailyTip) {
+      // We have access to the day as an argument inside of the callback function
+      res.json(dbtotalDailyTip);
+
+    });
+  });
+
+  app.get("/api/totalHours", function (req, res) {
+    // findAll returns all entries for a table when used with no options
+  
+    db.day.sum('input_totalhours_worked', {
+      where: {
+        input_user_id: req.user.id
+      }
+    }).then(function (dbtotalHours) {
+      // We have access to the day as an argument inside of the callback function
+      res.json(dbtotalHours);
+
+    });
+  });
+  app.get("/api/hourlyWage", function (req, res) {
+    // findAll returns all entries for a table when used with no options
+
+    db.day.avg('input_hourly_wage', {
+      where: {
+        input_user_id: req.user.id
+      }
+    }).then(function (dbavglHourlyWage) {
+      // We have access to the day as an argument inside of the callback function
+      res.json(dbavgHourlyWage);
+    });
+  });
+
+  app.get("/api/userinfo", function (req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.user.findAll({
+      where: {
+        id: req.user.id
+      },
+    }).then(function (dbUserInfo) {
+      // We have access to the day as an argument inside of the callback function
+      res.json(dbUserInfo[0].id);
+    });
+  });
+  // POST route for saving a new day  
+
+// sum(Input_tip_amount) + (sum(input_totalhours_worked)* user.hourlyWage)
+//avg(input_hourly_wage)
+
 
 
   app.post("/api/day", function (req, res) {
@@ -82,7 +134,6 @@ module.exports = function (app, passport) {
       totalSalaryDaily = (salary * req.body.hoursWorkedDaily).toFixed(2);
       totalWageDaily = (parseFloat(req.body.tipAmountDaily) + parseFloat(totalSalaryDaily)).toFixed(2)
       totalHourlyDaily = (totalWageDaily / parseFloat(totalHoursWorkedDaily)).toFixed(2);
-      console.log(totalHoursWorkedDaily);
 
       return {
         totalHoursWorkedDaily: totalHoursWorkedDaily,
