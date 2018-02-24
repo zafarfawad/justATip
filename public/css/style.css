@@ -232,4 +232,5 @@ video#bgVideo {
 .table{
   background-color: #ffffff6e;
   border-radius: 15px;
+  text-align: left;
 }
