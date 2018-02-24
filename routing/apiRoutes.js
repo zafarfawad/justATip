@@ -72,7 +72,8 @@ module.exports = function (app, passport) {
 
     db.day.sum('input_tip_amount', {
       where: {
-        input_user_id: req.user.id,
+        input_user_id: req.user.id,    
+
       }
     }).then(function (dbtotalDailyTip) {
       // We have access to the day as an argument inside of the callback function
@@ -94,18 +95,32 @@ module.exports = function (app, passport) {
 
     });
   });
-  app.get("/api/hourlyWage", function (req, res) {
-    // findAll returns all entries for a table when used with no options
 
-    db.day.avg('input_hourly_wage', {
+  //gets the average hourly wage to be displayed on the home page. 
+  app.get("/api/counthourlyWage", function (req, res) {
+
+    db.day.count('input_hourly_wage', {
+      where: {
+        user_id: req.user.id
+      }
+    }).then(function (dbcountHourlyWage) {
+      // We have access to the day as an argument inside of the callback function
+      res.json(dbcountHourlyWage);
+    });
+  });
+
+  app.get("/api/sumhourlyWage", function (req, res) {
+
+    db.day.sum('input_hourly_wage', {
       where: {
         input_user_id: req.user.id
       }
-    }).then(function (dbavglHourlyWage) {
+    }).then(function (dbsumHourlyWage) {
       // We have access to the day as an argument inside of the callback function
-      res.json(dbavgHourlyWage);
+      res.json(dbsumHourlyWage);
     });
   });
+//get the userinfo to the front end. ATM its only sending the user currently logged in.
 
   app.get("/api/userinfo", function (req, res) {
     // findAll returns all entries for a table when used with no options
@@ -118,12 +133,8 @@ module.exports = function (app, passport) {
       res.json(dbUserInfo[0].id);
     });
   });
+
   // POST route for saving a new day  
-
-// sum(Input_tip_amount) + (sum(input_totalhours_worked)* user.hourlyWage)
-//avg(input_hourly_wage)
-
-
 
   app.post("/api/day", function (req, res) {
    // getting salary info from the user table.

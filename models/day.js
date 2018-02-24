@@ -79,7 +79,7 @@ module.exports = function (sequelize, DataTypes) {
     // };
 
     day.associate = function (models) {
-    day.belongsTo(models.user);
+        day.belongsTo(models.user);
     }
     return day;
 };
