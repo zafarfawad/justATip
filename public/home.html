@@ -9,10 +9,17 @@
     <link rel="stylesheet" href="css/style.css" />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <title>Just a Tip</title>
 </head>
 
 <body>
+
+    <!-- <video id="bgVideo" autoplay loop muted width="100%">
+        <source src="images/background.mp4" type="video/mp4" />
+    </video> -->
     <!-- =============================================================================== -->
     <!-- NAVBAR -->
     <!-- =============================================================================== -->
@@ -33,22 +40,22 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="history.html">
-                            <span class="glyphicon glyphicon-list-alt"></span>History</a>
+                            <span class="glyphicon glyphicon-list-alt"></span> History</a>
                     </li>
                     <li>
                         <a href="">
-                            <span class="glyphicon glyphicon-map-marker"></span>Location</a>
+                            <span class="glyphicon glyphicon-map-marker"></span> Location</a>
                     </li>
                     <li>
                         <a href="/">
-                            <span class="glyphicon glyphicon-log-out" id="logout-button"></span>Logout</a>
+                            <span class="glyphicon glyphicon-log-out" id="logout-button"></span> Logout</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" id="main_container">
         <!-- **************************************************** -->
         <!-- Modal -->
         <!-- **************************************************** -->
@@ -131,7 +138,7 @@
         <!-- Body -->
         <!-- **************************************************** -->
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 ">
                 <h3>Total daily</h1>
                     <p id="total_weekly" class="wage_info">$
                         <span id="total_weekly_amount">0</span>
@@ -177,22 +184,22 @@
         <!-- hi -->
         <div class="row collapse" id="record-table">
             <div class="col-sm-12">
-                <table class="table table-striped">
-                    <thead class="thead-dark">
+                <table class="table table-hover">
+                    <thead>
                         <tr>
                             <th scope="col">Date Worked</th>
                             <th scope="col">Tip Amount</th>
                             <th scope="col">Comments</th>
                         </tr>
                     </thead>
-                    <tbody class="table-hover" id="record">
+                    <tbody id="record">
                     </tbody>
                 </table>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <button data-toggle="collapse" data-target="#record-table">
+                <button data-toggle="collapse" data-target="#record-table" id = "record-button">
                     <h5>Show record</h5>
                 </button>
             </div>
@@ -206,13 +213,13 @@
 
         <script>
             window.onload = function () {
-                
+
 
                 dayRecords();
 
                 function dayRecords() {
                     $.get("/api/day", function (data) {
-                            console.log(data);
+                        console.log(data);
                         for (var i = 0; i < data.length; i++) {
                             $("#record").append("<tr>" + "<td>" + data[i].createdAt + "</td>" + "<td>" +
                                 data[i].input_tip_amount +
@@ -222,19 +229,19 @@
                     });
                 };
             };
-                
-                    $("#logout-button").on("click", function () {
-                    $.get("/auth/logout", function (data, err) {
-                        console.log(data);
-                        if(!data){
-                            console.log('logout failed')
-                        } else {
-                            window.location.href = window.location.origin + '/';
-                            // window.location = 'login.html'                           
-                        }
 
-                    });
+            $("#logout-button").on("click", function () {
+                $.get("/auth/logout", function (data, err) {
+                    console.log(data);
+                    if (!data) {
+                        console.log('logout failed')
+                    } else {
+                        window.location.href = window.location.origin + '/';
+                        // window.location = 'login.html'                           
+                    }
+
                 });
+            });
         </script>
 </body>
 
