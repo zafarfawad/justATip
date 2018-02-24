@@ -13,7 +13,6 @@ $("#submit_tip").on("click", function (event) {
         var date = dateString.toLocaleDateString();
 
 
-        $("#total_weekly_amount").text(data.input_daily_wage);
 
         $("#total_weekly_hours").text(moment.duration(data.input_totalhours_worked,
             "minutes").format());
@@ -24,7 +23,32 @@ $("#submit_tip").on("click", function (event) {
 
         $("#record").append("<tr>" + "<td>" + date + "</td>" + "<td>" + data.input_tip_amount +
             "</td>" + "<td>" + data.input_notes + "</td>" + "</tr>");
-    });
+    
+    
+    
+        $.get("/api/totalHours", function (totalHours) {
+
+            $.get("/api/totalDailyTip", function (totalDailyTip) {
+
+                $.get("/api/userinfo", function (userinfo) {
+                
+                var totalCalc = totalDailyTip + (totalHours * userinfo)
+                
+                $("#total_weekly_amount").text(totalCalc);
+
+                })
+            })
+        })
+        });
+
+
+
+
+
+    
+
+// sum(Input_tip_amount) + (sum(input_totalhours_worked)* user.hourlyWage)
+//avg(input_hourly_wage)
 
 
 });
